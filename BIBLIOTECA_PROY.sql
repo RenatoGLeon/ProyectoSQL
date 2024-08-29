@@ -627,7 +627,34 @@ END //
 DELIMITER ;	
 
 
+-- Contar el Número Total de Libros Prestados
 
+-- Para contar el número total de libros prestados:
+
+
+SELECT COUNT(*) AS total_libros_prestados
+FROM prestamos_libros;
+-- Contar Libros Prestados por Cada Préstamo
+
+-- Para contar cuántos libros se han prestado en cada préstamo individual:
+
+
+SELECT id_prestamo, COUNT(id_libro) AS cantidad_libros_prestados
+FROM prestamos_libros
+GROUP BY id_prestamo;
+-- Contar el Número Total de Libros Únicos Prestados
+
+-- Si quieres contar cuántos libros únicos se han prestado en total, puedes hacerlo así:
+
+
+SELECT COUNT(DISTINCT id_libro) AS total_libros_unicos_prestados
+FROM prestamos_libros;
+-- Verificar los Datos
+
+-- Asegúrate de que la tabla prestamos_libros tenga datos y que estos datos estén completos y correctos. Puedes hacer una simple verificación de los datos actuales:
+
+
+SELECT * FROM prestamos_libros;
 
 
 
